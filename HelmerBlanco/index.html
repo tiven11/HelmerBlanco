@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.scss">
+
+</head>
+<body>
+
+    <svg>
+        <defs>
+            <clipPath id="clipPath">
+                   <circle class="one" cx="300" cy="800" r="1300" transform="scale(0)"/>
+            </clipPath>
+        </defs>
+
+    </svg>
+
+
+    <button id="open"> Open </button>
+    
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li> <a href="index.html">Home</a></li>
+                <li> <a href="#">About Us</a></li>
+                <li> <a href="#">Our Projects</a></li>
+                <li> <a href="#">Contact Us</a></li>
+            </ul>
+
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A quibusdam eos dolorum optio, at ipsum quis laudantium nostrum odit dolore dicta ipsa, deleniti ullam nemo suscipit? Fuga nam sequi quo?</p>
+        </nav>
+    </div>
+
+    <h1>HELMERblanco</h1>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+    <script>
+
+        var tl = new TimelineMax({paused:true});
+
+        document.getElementById('open').addEventListener('click',()=>{
+            this.tl.play();
+        })
+
+        tl.from("nav",1,{
+            x:300,
+            display:'none',
+            ease: Power2.easeOut,
+            delay:0
+        });
+
+        tl.to("circle.one",3,{
+            scale:1,
+            x:0,
+            y:-1300,
+            ease: Power2.easeOut
+
+        },"-=1")
+
+        tl.from("h1",1,{
+            opacity:0,
+            y:100,
+            ease: Bounce.easeOut,
+            delay:0
+        },'-=3.2');
+
+
+
+    </script>
+
+</body>
+</html>
